@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/home_page.dart';
 
 class TabPage extends StatefulWidget {
   const TabPage({Key? key}) : super(key: key);
@@ -8,18 +9,34 @@ class TabPage extends StatefulWidget {
 }
 
 class _TabPageState extends State<TabPage> {
+  int selectedIndex = 0;
+
+  List pages = const [
+    HomePage(),
+    Text('page2'),
+    Text('page3'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(''),
-      ), //AppBar
-      body: const Center(
-        child: Text(
-          "결과가 나올 부분",
-          style: TextStyle(fontSize: 40),
-        ),
+      body: Center(child: pages[selectedIndex]),
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.black,
+        onTap: _onItemTapped,
+        currentIndex: selectedIndex,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
+          BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: 'account'),
+        ],
       ),
     );
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
   }
 }

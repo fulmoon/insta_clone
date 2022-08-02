@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/root_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,14 +8,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-                                                                                primarySwatch: Colors.blue,
+        //useMaterial3: true,
+        primarySwatch: Colors.blue,
+        primaryColor: Colors.white,
+        secondaryHeaderColor: Colors.black,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const RootPage(),
     );
   }
 }
