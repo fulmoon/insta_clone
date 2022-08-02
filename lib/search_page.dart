@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/create_page.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({Key? key}) : super(key: key);
@@ -15,9 +16,11 @@ class _SearchPageState extends State<SearchPage> {
         backgroundColor: Colors.white,
       ), //AppBar
       body: _buildBody(),
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
-        child: Icon(Icons.create),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const CreatePage()));
+        },
+        child: const Icon(Icons.create),
       ),
     );
   }
