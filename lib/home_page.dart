@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
 
   Widget _buildBody() {
     return Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
       child: SafeArea(
           child: SingleChildScrollView(
             child: Center(
